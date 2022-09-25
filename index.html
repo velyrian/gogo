@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    yo yo yo
+    <script>
+addEventListener("fetch", event => {
+  event.respondWith(handleRequest(event.request))
+async function handleRequest(request) {
+  if (request.method === "POST") {
+    const payload = await request.json() 
+    // Getting the POST request JSON payload
+    if ('message' in payload) { 
+      // Checking if the payload comes from Telegram
+      const chatId = payload.message.chat.id
+      const text = payload.message.text + " over"
+      const url = `https://api.telegram.org/bot${API_KEY}/sendMessage?chat_id=${chatId}&text=${text}`
+      const data = await fetch(url).then(resp => resp.json()) 
+
+
+
+      }
+      }
+  return new Response(found) // Doesn't really matter
+}
+
+
+  
+});
+
+async function handleRequest(request) {
+  return new Response("Hello world")
+}
+
+</script>
+</body>
+</html>
