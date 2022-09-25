@@ -18,7 +18,7 @@ async function handleRequest(request) {
       // Checking if the payload comes from Telegram
       const chatId = payload.message.chat.id
       const text = payload.message.text + " over"
-      const url = `https://api.telegram.org/bot5695325005:AAFqm5Hyx952913JTlecJNDY8jPO4df4H4k/sendMessage?chat_id=${chatId}&text=${text}`
+      const url = `https://api.telegram.org/bot/sendMessage?chat_id=${chatId}&text=${text}`
       const data = await fetch(url).then(resp => resp.json()) 
 
 
